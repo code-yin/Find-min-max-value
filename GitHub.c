@@ -1,30 +1,34 @@
 #include <stdio.h>
 int main(void)
 {
-	int n;
-	printf("Enter an integer:\n");
-	scanf("%d",&n);
-	
-	if (n < 1 || n > 100) {
-		printf("Wrong! Please enter n between 0 and 100.\n");
-		return 0;}
-	
-	int array[100];
-	int i;
-	printf("The number of your integer are :%d\n",n);
-	printf("The integers are:\n");
+	int num;
+	while(1){
+		printf("Enter an integer:\n");
+		scanf("%d",&num);
+
+		if (num < 1 || num > 1000 ) {
+			printf("False!\nPlease enter an integer between 1 and 1000.\n");}
+		break;
+	}
 		
-	for (int i = 0; i < n; i++) {scanf("%d", &array[i]);}
-	int Max_array = array[0];
-	int Min_array = array[0];
-		
-	for (int i = 0; i < n; i++) {
-		if (array[i] > Max_array) {Max_array = array[i];}}
-	printf("The max integer is: %d\n", Max_array);
+	int array[1000];
+	printf("The number of your array is:\n");
+	for (int i = 0; i < num; i ++) {
+		scanf("%d", &array[i]);}
 	
-	for (int m = 0; m < n; m++) {
-		if (array[m] < Min_array) {Min_array = array[m];}}
+	int Max_num = array[0];
+	int Min_num = array[0];
+	float sum = 0.0;
+	float Average_num = array[0];
+	
+	for (int i = 0; i < num; i ++) {
+		if (array[i] > Max_num) {Max_num = array[i];}
+		if (array[i] < Min_num) {Min_num = array[i];}
+		sum += array[i];}
 		
-	printf("The min integer is: %d\n", Min_array);
-	printf("The gap between max and min integer is:%d\n",Max_array - Min_array);
+	printf("The Max_num is: %d\n",Max_num);
+    printf("The Min_num is: %d\n",Min_num);
+	printf("The average_num is:%.2f\n", sum / num);
+	
+	return 0;
 }
